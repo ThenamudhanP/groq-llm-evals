@@ -22,3 +22,33 @@ This project was originally based on Dave Ebbelaar's LLM Evals tutorial but has 
 Ensure you have Python installed, then run:
 ```bash
 pip install groq langfuse python-dotenv
+
+2. Environment Variables (Important!)
+For security reasons, the .env file containing API keys is not uploaded to this repository. You must create your own.
+
+Create a new file in the root directory named .env.
+
+Get a free API key from GroqCloud.
+
+Get free API keys from Langfuse.
+
+Add the following to your .env file:
+
+Plaintext
+GROQ_API_KEY="your_groq_api_key_here"
+
+LANGFUSE_SECRET_KEY="your_langfuse_secret_key_here"
+LANGFUSE_PUBLIC_KEY="your_langfuse_public_key_here"
+LANGFUSE_HOST="[https://us.cloud.langfuse.com](https://us.cloud.langfuse.com)" # Or the region you selected
+💻 How to Run
+Run Level 1 (Unit Tests):
+This will execute the local tests. You will see two tests pass and one intentionally fail (to demonstrate error catching).
+
+Bash
+python src/level-1-unit-tests.py
+Run Level 2 (Human Annotation):
+This will process the tickets and send the trace data to your Langfuse web dashboard.
+
+Bash
+python src/level-2-human-annotation.py
+Once this script finishes, log into your Langfuse dashboard to view the traces, latency, and add human scoring!
